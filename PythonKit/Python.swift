@@ -617,6 +617,15 @@ public extension PythonObject {
     /// - Parameter args: Positional arguments for the Python callable.
     @discardableResult
     func dynamicallyCall(
+        withArguments args: PythonConvertible...) -> PythonObject {
+        return dynamicallyCall(withArguments: args)
+    }
+    
+    /// Call `self` with the specified positional arguments.
+    /// - Precondition: `self` must be a Python callable.
+    /// - Parameter args: Positional arguments for the Python callable.
+    @discardableResult
+    func dynamicallyCall(
         withArguments args: [PythonConvertible]) -> PythonObject {
         return try! throwing.dynamicallyCall(withArguments: args)
     }
